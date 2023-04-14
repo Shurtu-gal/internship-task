@@ -7,7 +7,21 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
+const { config } = require('dotenv');
+
+const getEnv = () => {
+  const { parsed } = config(
+    process.env.NODE_ENV === 'development' ? { path: './env/.env.development' } : { path: './env/.env.production' },
+  );
+  return parsed;
+};
+
 const nextConfig = withPWA({
+  env: getEnv(),
+  reactStrictMode: process.env.NODE_ENV !== 'development',
+  images: {
+    domains: ['res.cloudinary.com', 'via.placeholder.com'],
+  },
   compiler: {
     styledComponents: true,
   },

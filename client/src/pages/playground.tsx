@@ -1,12 +1,14 @@
-import ExperimentSection from '@/components/molecules/ExperimentSection';
+import ExperimentCard from '@/components/atoms/ExperimentCard';
 import { GraphQLClient } from '@/config/apolloClient';
 import getAllExperiments from '@/graphql/queries/getAllExperiments';
 import { Experiment } from '@/utils/types';
 
 const Home = ({ experiments }: { experiments: Experiment[] }) => (
-  <>
-    <ExperimentSection experiments={experiments} />
-  </>
+  <div style={{ margin: '100px' }}>
+    {Array(experiments[0]).map((experiment) => (
+      <ExperimentCard key={experiment.id} experiment={experiment} />
+    ))}
+  </div>
 );
 
 export default Home;

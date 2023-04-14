@@ -163,6 +163,15 @@ table {
   border-radius: 5px;
 }
 
+button {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 :root {
   --max-width: 83.5em;
   --max-width-bleed: 90%;
