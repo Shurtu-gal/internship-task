@@ -7,6 +7,7 @@ export type IWinston = originalWinston.Logger;
 
 export const winston = (logModule: string): originalWinston.Logger => {
 	const logFormat = combine(
+		format.errors({ stack: true }),
 		colorize({ all: true }),
 		label({ label: 'Internship' }),
 		timestamp({ format: 'DD-MM-YY HH:MM:SS' }),
@@ -27,6 +28,7 @@ export const winston = (logModule: string): originalWinston.Logger => {
 	return createLogger({
 		level: 'debug',
 		transports: [new transports.Console(options.console)],
+		format: format.combine(format.splat(), format.simple(), format.errors({ stack: true })),
 		exitOnError: true,
 	});
 };

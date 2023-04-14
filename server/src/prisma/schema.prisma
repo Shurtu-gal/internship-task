@@ -13,3 +13,47 @@ model Post {
   content   String
   published Boolean @default(false)
 }
+
+type Step {
+  stepNumber Int
+  step       String
+  image      String?
+}
+
+type Material {
+  name     String
+  quantity Int
+}
+
+model Experiment {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?    @default("No Description")
+  difficulty  Int?       @default(1)
+  subjects    Subject[]  @relation(fields: [subjectID], references: [id])
+  categories  Category[] @relation(fields: [categoryID], references: [id])
+  subjectID   String[]   @default([]) @db.ObjectId
+  categoryID  String[]   @default([]) @db.ObjectId
+  image       String?
+  steps       Step[]
+  materials   Material[]
+  precautions String[]   @default([])
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Category {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  description   String?      @default("No Description")
+  experimentIDs String[]     @db.ObjectId
+  Experiment    Experiment[] @relation(fields: [experimentIDs], references: [id])
+}
+
+model Subject {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  description   String?      @default("No Description")
+  experimentIDs String[]     @db.ObjectId
+  Experiment    Experiment[] @relation(fields: [experimentIDs], references: [id])
+}
