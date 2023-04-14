@@ -1,9 +1,13 @@
+import Link from 'next/link';
+import { Copyright, FooterIcons, FooterWrapper } from './styles';
+
 const Footer = () => (
-  <footer className='footer'>
-    <div className='footer__container'>
-      <p className='footer__text'>© 2022 - 2023 Ashish Padhy - All rights reserved</p>
-    </div>
-  </footer>
+  <FooterWrapper>
+    <Copyright>
+      Copyright &copy; 2023 <Link href={'https://github.com/Shurtu-gal'}>Ashish Padhy</Link> - All rights reserved
+    </Copyright>
+    <FooterIcons></FooterIcons>
+  </FooterWrapper>
 );
 
 export default Footer;

@@ -8,6 +8,7 @@ import type { AppProps } from 'next/app';
 
 import Layout from '@/components/molecules/layout';
 import ThemeProvider from '@/context/ThemeContext';
+import ApolloWrapper from '@/config/apolloClient';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -30,5 +31,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || commonLayout;
 
-  return <ThemeProvider>{loading ? <div>Loading</div> : getLayout(<Component {...pageProps} />)}</ThemeProvider>;
+  return (
+    <ApolloWrapper>
+      <ThemeProvider>{loading ? <div>Loading</div> : getLayout(<Component {...pageProps} />)}</ThemeProvider>
+    </ApolloWrapper>
+  );
 }
