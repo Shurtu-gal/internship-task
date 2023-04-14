@@ -4,10 +4,10 @@ import express, { Express } from 'express';
 import http from 'http';
 import path from 'path';
 
-import { winston } from '@/config/winston';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
+import { winston } from '@/config/winston';
 
 import { Context, context } from '@/utils/context';
 import { schema } from './nexus';
@@ -29,6 +29,7 @@ const corsOptions: cors.CorsOptions = {
 			callback(new Error('Not allowed by CORS'));
 		}
 	},
+	credentials: true,
 };
 
 const init = async (app: Express, PORT: number) => {
