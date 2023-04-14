@@ -40,6 +40,7 @@ const init = async (app: Express, PORT: number) => {
 	const server = new ApolloServer<Context>({
 		schema,
 		plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+		introspection: true,
 	});
 
 	await server.start();
