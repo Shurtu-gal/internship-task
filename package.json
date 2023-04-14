@@ -7,10 +7,6 @@
   "author": "<100484401+Shurtu-gal@users.noreply.github.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "dependencies": {},
   "scripts": {
     "lint": "yarn workspaces run lint",
