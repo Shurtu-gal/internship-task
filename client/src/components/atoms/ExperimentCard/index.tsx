@@ -14,7 +14,7 @@ const ExperimentCard = (props: ExperimentCardProps) => {
     <Container id={id}>
       <Image src={image || alternateImage} alt={title} width={300} height={200} />
       <Title>{title}</Title>
-      <p>{description}</p>
+      <p style={{ lineHeight: '1.5rem' }}>{description}</p>
       <Subjects>
         <p>Subjects: </p>
         {subjects?.map((subject) => (

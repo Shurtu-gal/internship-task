@@ -63,11 +63,11 @@ export const List = styled.ul`
 
 export const NumberedList = styled.ol`
   margin: 0;
-  padding: 0;
+  padding: 0.5em 0;
   list-style: decimal;
 `;
 
 export const ListItem = styled.li`
-  padding: 0;
+  padding: 0.5em 0;
   font-size: 1.2rem;
 `;
