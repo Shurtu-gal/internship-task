@@ -1,3 +1,3 @@
-# Steam-task
+# Internship-task
 
 Repository for Internship

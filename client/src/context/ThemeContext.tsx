@@ -15,7 +15,7 @@ export const ThemeContext = createContext<ThemeContextProps>({
 });
 
 const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleToggle = () => {
     setIsDarkMode(!isDarkMode);

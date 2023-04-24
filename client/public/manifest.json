@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Portfolio",
+  "name": "Internship-client",
   "short_name": "Ashish Padhy",
-  "description": "A Portfolio built using Next.js by Ashish Padhy",
+  "description": "A front-end project built using Next.js by Ashish Padhy",
   "icons": [
     {
       "src": "/icon-192x192.png",
